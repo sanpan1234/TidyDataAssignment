@@ -61,6 +61,8 @@ tBodyGyroJerkMean
 
 The next level of processing required us to calculate average values at group levels where each group is a unique combination of an activity and a subject. The final variables are all mean values at the group level (mean values for an activity for a subject):
 
+###Final dataset (final_tidy_dataset.txt) variables
+
 **Grouping Variables**
 ```
 activity_name
