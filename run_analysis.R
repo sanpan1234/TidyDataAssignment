@@ -34,7 +34,7 @@ subject_train <- read.table(str_c(train_data_folder, "subject_train.txt"),
 merged_train <- cbind(y_train, subject_train, x_train)
 
 #get the test datasets, only dataset needing features (as colnames) read above is the X_test
-###Project Item #4 is accounted for here using the col.names
+###Project Task #4 is accounted for here using the col.names
 x_test <- read.table(str_c(test_data_folder, "X_test.txt"), col.names = features$feature)
 y_test <- read.table(str_c(test_data_folder, "y_test.txt"), col.names = c("activity_num"))
 subject_test <- read.table(str_c(test_data_folder, "subject_test.txt"), 
@@ -42,20 +42,20 @@ subject_test <- read.table(str_c(test_data_folder, "subject_test.txt"),
 #merge all the test datasets
 merged_test <- cbind(y_test, subject_test, x_test)
 
-###Project Step #1 - Merges the training and the test sets to create one data set.
+###Project Task #1 - Merges the training and the test sets to create one data set.
 #merge training and test datasets
 merged_all <- rbind(merged_train, merged_test)
 #using dplyr for ease of functionality. Create the tibble.
 merged_all_df <- tbl_df(merged_all)
 
-###Project Step #2 Extracts only the measurements on the mean and standard deviation 
+###Project Task #2 Extracts only the measurements on the mean and standard deviation 
 ###for each measurement.
 #uses dplyr 'select' verb to extract activity, subject and the mean and standard deviation
 #variables
 mean_std_df <- select(merged_all_df, activity_num, subject_num, 
                       contains(".mean.."), contains(".std.."))
 
-###Project Steps #3/#4
+###Project Tasks #3/#4
 ####3.Uses descriptive activity names to name the activities in the data set
 ###4. Appropriately labels the data set with descriptive variable names.
 ###This is already covered above when the data was read with feature names as column names
@@ -64,12 +64,12 @@ mean_std_df <- inner_join(mean_std_df, activityLabels)
 #activity numbers are not needed as we have the labels now
 mean_std_df <- select(mean_std_df, -activity_num)
 
-###Project Steps #5
+###Project Task #5
 ###From the data set in step 4, creates a second, independent tidy data set 
 ###with the average of each variable for each activity and each subject.
 #dplyr group_by is used to group the data frame by activity and then by subject
 grouped_mean_std_df <- group_by(mean_std_df, activity_name, subject_num)
-#dplyr summarize_each is used to get average for all vaiables in the groups
+#dplyr summarize_all is used to get averages for all variables in the groups
 final_tidy_data_df <- summarise_all(grouped_mean_std_df, funs(mean))
 #write this dataset so that it's available in GitHub repo
 write.table(final_tidy_data_df, "final_tidy_dataset.txt", row.names = FALSE)
