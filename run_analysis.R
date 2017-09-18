@@ -73,3 +73,4 @@ grouped_mean_std_df <- group_by(mean_std_df, activity_name, subject_num)
 final_tidy_data_df <- summarise_all(grouped_mean_std_df, funs(mean))
 #write this dataset so that it's available in GitHub repo
 write.table(final_tidy_data_df, "final_tidy_dataset.txt", row.names = FALSE)
+

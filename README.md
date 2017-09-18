@@ -39,3 +39,5 @@ grouped_mean_std_df <- group_by(mean_std_df, activity_name, subject_num)
 final_tidy_data_df <- summarise_all(grouped_mean_std_df, funs(mean))
 write.table(final_tidy_data_df, "final_tidy_dataset.txt", row.names = FALSE)
 ```
+
+**TidyDataAssignment.Rproj** is a RStudio project file that allows opening the repo content as a project in RStudio (can be safely ignore if not using RStudio!).
