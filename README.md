@@ -1,4 +1,4 @@
-# TidyDataAssignment
+# Getting and Cleaning Data Course Project Submission
 As described in the course project outline, the end goal of this project is to prepare a tidy data set from a bunch of 'messy' datasets. 
 
 This repo contains the required artifacts:
