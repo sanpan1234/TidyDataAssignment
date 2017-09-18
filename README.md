@@ -8,5 +8,18 @@ This repo contains the required artifacts:
 
 Following is a description of all the steps performed by the script (run_analysis.R):
 
-1. Step 1: Download and unzip the 'messy' dataset zip file into a subfolder of the working directory. This root folder is referred to by the variable **data_root_folder**. The original data folder is _not included_ in the repo.
+Step 0: Two packages are used in the script for various features provided by them: **stringr** and **dplyr**. 
+```{r cars}
+#'stringr' package has some useful functions to work with strings
+library(stringr)
+#'dplyr' package is a life saver! 
+library(dplyr)
+```
 
+Step 1: Download and unzip the 'messy' dataset zip file into a subfolder of the working directory. This root folder is referred to by the variable **data_root_folder**. This folder is _not included_ in the repo.
+
+```{r cars}
+data_root_folder <- "./UCI HAR Dataset/"
+train_data_folder <- str_c(data_root, "train/")
+test_data_folder <- str_c(data_root, "test/")
+```
