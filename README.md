@@ -32,7 +32,7 @@ test_data_folder <- str_c(data_root, "test/")
 
 **Step 4 (Project Tasks #3/#4):** These tasks require us to use descriptive activity names to name the activities in the data set and to appropriately label the data set with descriptive variable names. Variable names (task #4) are taken care while loading the datasets by providing ```col.names```. This step uses ```dplyr's inner_join()``` to join ```activityLabels``` with the dataset to provide descriptive activity labels.
 
-**Step 4 (Project Task #5):** _"From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject."_ ```dplyr group_by()``` comes in very handy to group the data frame by activity and then by subject. Then ```dplyr summarize_all()``` is used to get the averages for all variables in the groups. The final tiday dataset is written out to a file.
+**Step 4 (Project Task #5):** _"From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject."_ ```dplyr group_by()``` comes in very handy to group the data frame by activity and then by subject. Then ```dplyr summarize_all()``` is used to get the averages for all variables in the groups. The final tidy dataset is written out to a file.
 
 ```
 grouped_mean_std_df <- group_by(mean_std_df, activity_name, subject_num)
