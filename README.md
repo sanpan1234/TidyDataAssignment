@@ -16,10 +16,11 @@ library(stringr)
 library(dplyr)
 ```
 
-Step 1: Download and unzip the 'messy' dataset zip file into a subfolder of the working directory. This root folder is referred to by the variable **data_root_folder**. This folder is _not included_ in the repo.
+Step 1: Download and unzip the 'messy' dataset zip file into a subfolder of the working directory. This root folder is referred to by the variable **data_root_folder**. This folder is _not included_ in the repo but _commented_ code to download and unzip the file is included at the top of the script and can be used if needed.
 
 ```{r cars}
 data_root_folder <- "./UCI HAR Dataset/"
 train_data_folder <- str_c(data_root, "train/")
 test_data_folder <- str_c(data_root, "test/")
 ```
+Step 2: **Load datasets into R** - ```read.table``` is used.
